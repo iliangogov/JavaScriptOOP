@@ -25,7 +25,7 @@ function findPrimes(from, to) {
 		if (num < 2) {
 			return false;
 		}
-		
+
 			var prime = true;
 
 		for (var i = 2; i <= Math.sqrt(num); i += 1) {
