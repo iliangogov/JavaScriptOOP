@@ -40,7 +40,7 @@ function solve() {
             },
 
             validateAge: function (age) {
-                if (typeof age === 'NaN') {
+                if (!(+age) || age === undefined || typeof age === Object) {
                     throw new Error('age must be number or convertible to number');
                 }
 
@@ -81,8 +81,8 @@ function solve() {
                 return this._age;
             },
             set: function (age) {
-               validator.validateAge(age);
-                this._age=age;
+                validator.validateAge(age);
+                this._age = age;
             }
         });
 
