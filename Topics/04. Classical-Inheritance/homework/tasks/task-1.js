@@ -55,7 +55,7 @@ function solve() {
             this.lastname = lastname;
             this.age = age;
         }
-        
+
         Object.defineProperty(Person.prototype, 'firstname', {
             get: function () {
                 return this._firstname;
