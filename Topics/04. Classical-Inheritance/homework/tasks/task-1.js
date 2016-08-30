@@ -55,9 +55,7 @@ function solve() {
             this.lastname = lastname;
             this.age = age;
         }
-
-        var validate = /[A-Za-z]+/i;
-
+        
         Object.defineProperty(Person.prototype, 'firstname', {
             get: function () {
                 return this._firstname;
