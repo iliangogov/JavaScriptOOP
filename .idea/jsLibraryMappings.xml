@@ -3,6 +3,7 @@
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$/Topics/01. Functions-and-Function-Expressions/homework" libraries="{JavaScriptOOP/Topics/01. Functions-and-Function-Expressions/homework/node_modules}" />
     <file url="file://$PROJECT_DIR$/Topics/03. Closures-and-Scope/homework" libraries="{JavaScriptOOP/Topics/03. Closures-and-Scope/homework/node_modules}" />
+    <file url="file://$PROJECT_DIR$/Topics/04. Classical-Inheritance/homework" libraries="{JavaScriptOOP/Topics/04. Classical-Inheritance/homework/node_modules}" />
     <includedPredefinedLibrary name="ECMAScript 6" />
   </component>
 </project>
