@@ -139,7 +139,7 @@ function solve() {
                     throw new Error('Invalid student ID');
                 }
                 if (this.evaluatedStudents.indexOf(id) > -1) {
-                    throw new Error('Student\'s cheating!');
+                    throw new Error("Student's cheating!");
                 }
                 this.evaluatedStudents.push(id);
             }

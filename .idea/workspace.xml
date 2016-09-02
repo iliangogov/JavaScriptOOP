@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="35b5f289-d0fb-4f8c-94bc-c53f474cdf72" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" afterPath="$PROJECT_DIR$/.idea/jsLibraryMappings.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/package.json" afterPath="$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/package.json" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tasks/task-1.js" afterPath="$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tasks/task-1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Topics/17. Modules-and-Patterns/demos/1. module.js" afterPath="$PROJECT_DIR$/Topics/17. Modules-and-Patterns/demos/1. module.js" />
     </list>
     <ignored path="JavaScriptOOP.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -58,11 +55,21 @@
       <file leaf-file-name="task-1.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tasks/task-1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+            <state relative-caret-position="-261">
+              <caret line="141" column="57" selection-start-line="141" selection-start-column="57" selection-end-line="141" selection-end-column="57" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="tests-task-1-bgcoder.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1-bgcoder.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-3723">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -380,15 +387,15 @@
       <workItem from="1472454926528" duration="2247000" />
       <workItem from="1472544082958" duration="15476000" />
       <workItem from="1472562219019" duration="595000" />
-      <workItem from="1472800769842" duration="20778000" />
+      <workItem from="1472800769842" duration="21483000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48100000" />
+    <option name="totallyTimeSpent" value="48805000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23352855" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -425,13 +432,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Topics/01. Functions-and-Function-Expressions/homework/tests/tests-task-1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Topics/01. Functions-and-Function-Expressions/homework/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="221">
@@ -833,10 +833,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1-bgcoder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-3723">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tasks/task-1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="47" column="18" selection-start-line="47" selection-start-column="18" selection-end-line="47" selection-end-column="18" />
+        <state relative-caret-position="-261">
+          <caret line="141" column="57" selection-start-line="141" selection-start-column="57" selection-end-line="141" selection-end-column="57" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
