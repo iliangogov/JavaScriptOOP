@@ -55,8 +55,8 @@
       <file leaf-file-name="task-1.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tasks/task-1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-261">
-              <caret line="141" column="57" selection-start-line="141" selection-start-column="57" selection-end-line="141" selection-end-column="57" />
+            <state relative-caret-position="164">
+              <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -64,10 +64,26 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Topics/17. Modules-and-Patterns/homework/README.md">
+          <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+            <state split_layout="FIRST">
+              <first_editor relative-caret-position="0">
+                <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <folding />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+          <provider selected="true" editor-type-id="MarkdownFxPreviewEditor">
+            <state />
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="tests-task-1-bgcoder.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1-bgcoder.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-3723">
+            <state relative-caret-position="-1224">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -77,7 +93,7 @@
       <file leaf-file-name="tests-task-1-compiled.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1-compiled.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2958">
+            <state relative-caret-position="-204">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -87,8 +103,8 @@
       <file leaf-file-name="tests-task-1.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="333">
+              <caret line="287" column="11" selection-start-line="287" selection-start-column="11" selection-end-line="287" selection-end-column="11" />
               <folding />
             </state>
           </provider>
@@ -113,6 +129,7 @@
         <option value="$PROJECT_DIR$/Topics/04. Classical-Inheritance/homework/tasks/task-1.js" />
         <option value="$PROJECT_DIR$/Topics/17. Modules-and-Patterns/demos/1. module.js" />
         <option value="$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/package.json" />
+        <option value="$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1.js" />
         <option value="$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tasks/task-1.js" />
       </list>
     </option>
@@ -259,32 +276,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaScriptOOP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JavaScriptOOP" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="Topics" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="06. Modules-and-Patterns" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="homework" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="tasks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -387,12 +378,12 @@
       <workItem from="1472454926528" duration="2247000" />
       <workItem from="1472544082958" duration="15476000" />
       <workItem from="1472562219019" duration="595000" />
-      <workItem from="1472800769842" duration="21483000" />
+      <workItem from="1472800769842" duration="28648000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="48805000" />
+    <option name="totallyTimeSpent" value="55970000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -432,20 +423,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/Topics/01. Functions-and-Function-Expressions/homework/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Topics/01. Functions-and-Function-Expressions/homework/tasks/task-2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Topics/01. Functions-and-Function-Expressions/homework/tests/tests-task-2.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -787,14 +764,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/README.md">
       <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
         <state split_layout="FIRST">
@@ -825,26 +794,59 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1-compiled.js">
+    <entry file="file://$PROJECT_DIR$/Topics/17. Modules-and-Patterns/homework/README.md">
+      <provider editor-type-id="split-provider[text-editor;MarkdownPreviewEditor]">
+        <state split_layout="FIRST">
+          <first_editor relative-caret-position="0">
+            <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <folding />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="MarkdownFxPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1-compiled.js.map">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2958">
+        <state relative-caret-position="-2295">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="sourcemapFileViewerProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1-bgcoder.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1224">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1-bgcoder.js">
+    <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1-compiled.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3723">
+        <state relative-caret-position="-204">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tests/tests-task-1.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="333">
+          <caret line="287" column="11" selection-start-line="287" selection-start-column="11" selection-end-line="287" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework/tasks/task-1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="141" column="57" selection-start-line="141" selection-start-column="57" selection-end-line="141" selection-end-column="57" />
+        <state relative-caret-position="164">
+          <caret line="48" column="5" selection-start-line="48" selection-start-column="5" selection-end-line="48" selection-end-column="5" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>

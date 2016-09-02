@@ -45,13 +45,18 @@
  */
 
 
-// 93 passing (1s)
-// 20 failing
+// 102 passing (1s)
+// 11 failing
 function solve() {
+
+    var idCounter=0;
+
     var Course = {
         init: function (title, presentations) {
 
-            if (presentations === null || presentations === undefined || presentations === [] || presentations === '') {
+            var presentations=presentations;
+
+            if (presentations === null || presentations === undefined || presentations.length===0 || presentations === '') {
                 throw new Error('Presentations must be provided !');
             }
 
@@ -64,17 +69,18 @@ function solve() {
             DoesTextHaveAtleastOneCharacter(title);
 
             for(var p of presentations) {
-                if(p.title===''){
+                if(p===' '|| p==='' || p===[]){
                     throw  new Error();
                 }
 
-                DoesTextBeginOrEndWithEmptySpaces(p.title);
-                DoesTextHaveConsecutiveSpaces(p.title);
-                DoesTextHaveAtleastOneCharacter(p.title);
+                DoesTextBeginOrEndWithEmptySpaces(p);
+                DoesTextHaveConsecutiveSpaces(p);
+                DoesTextHaveAtleastOneCharacter(p);
             }
 
+
             this.title = title;
-            this.presentations = [].concat(presentations);
+            this.presentations = presentations;
             this.students = [];
             this.evaluatedStudents = [];
 
@@ -82,17 +88,18 @@ function solve() {
         },
         addStudent: function (name) {
             var fullnameArray = name.split(' ');
-            var firstname = fullnameArray[0];
-            var lastname = fullnameArray[1];
-            var idCounter = 0;
+
             if (fullnameArray.length !== 2) {
                 throw new Error('Student must be presented with 2 names !');
             }
 
+            var firstname = fullnameArray[0];
+            var lastname = fullnameArray[1];
+
             DoesTextBeginWithUpperCaseAndTheRestIfAnyAreLowerCase(firstname);
             DoesTextBeginWithUpperCaseAndTheRestIfAnyAreLowerCase(lastname);
 
-            idCounter += 1;
+            idCounter+=1;
 
             this.students.push({
                 firstname: firstname,
@@ -101,19 +108,20 @@ function solve() {
             });
 
             return idCounter;
+
         },
         getAllStudents: function () {
-            return this.students || [];
+            return this.students ;
         },
         submitHomework: function (studentID, homeworkID) {
 
-            if (this.presentations[homeworkID - 1] === undefined) {
-                throw new Error('Invalid homework provided !')
+            if (this.presentations[homeworkID-1] === undefined) {
+                throw new Error('Invalid homeworkID provided !')
             }
 
-            if (this.students[studentID - 1] === undefined || this.presentations[homeworkID - 1] === undefined) {
+            if (this.students[studentID-1] === undefined ) {
 
-                throw new Error('Invalid studentID or presentation with the following ID provided !');
+                throw new Error('Invalid studentID provided !');
             }
         },
         pushExamResults: function (results) {
@@ -139,7 +147,7 @@ function solve() {
                     throw new Error('Invalid student ID');
                 }
                 if (this.evaluatedStudents.indexOf(id) > -1) {
-                    throw new Error("Student's cheating!");
+                    throw new Error("Student's cheating !");
                 }
                 this.evaluatedStudents.push(id);
             }
