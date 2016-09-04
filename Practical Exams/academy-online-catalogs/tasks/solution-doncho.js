@@ -385,4 +385,4 @@ function solve() {
     };
 }
 
-module.exports = solve;
+//module.exports = solve;
