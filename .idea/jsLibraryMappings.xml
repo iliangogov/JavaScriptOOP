@@ -2,6 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$/Practical Exams/academy-online-catalogs" libraries="{JavaScriptOOP/Practical Exams/academy-online-catalogs/node_modules}" />
+    <file url="file://$PROJECT_DIR$/Sample Exams/audio-player" libraries="{JavaScriptOOP/Sample Exams/audio-player/node_modules}" />
     <file url="file://$PROJECT_DIR$/Topics/01. Functions-and-Function-Expressions/homework" libraries="{JavaScriptOOP/Topics/01. Functions-and-Function-Expressions/homework/node_modules}" />
     <file url="file://$PROJECT_DIR$/Topics/03. Closures-and-Scope/homework" libraries="{JavaScriptOOP/Topics/03. Closures-and-Scope/homework/node_modules}" />
     <file url="file://$PROJECT_DIR$/Topics/04. Classical-Inheritance/homework" libraries="{JavaScriptOOP/Topics/04. Classical-Inheritance/homework/node_modules}" />
