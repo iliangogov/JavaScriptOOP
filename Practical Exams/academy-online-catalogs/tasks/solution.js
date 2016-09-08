@@ -1,242 +1,508 @@
 function solve() {
 
-    let itemIdGenerator = 0,
-        catalogIdGenerator = 0;
+    const NAME_MIN_LENGTH = 2;
+    const NAME_MAX_LENGTH = 40;
+    const GENRE_MIN_LENGTH = 2;
+    const GENRE_MAX_LENGTH = 20;
 
-    var Item = (function () {
+    var uniqueItemId = 0;
+    var uniqueCatalogId = 0;
 
-        function Item(name, description) {
-            this.id = ++itemIdGenerator;
-            this.description = description;
+    class Item {
+        constructor(name, description) {
             this.name = name;
+            this.description = description;
+            this._id = getNextId();
         }
 
-        Item.prototype = Object.create({});
-        Object.defineProperty(Item.prototype, 'name', {
-            get: function () {
-                return this._name;
-            },
-            set: function (name) {
-                if (name.length <= 2 || name.length >= 40) {
-                    throw new Error('name length invalida range');
-                }
+        get name() {
+            return this._name;
+        }
 
-                this._name = name;
-            }
-        });
+        set name(val) {
+            checkIfStringIsNullOrEmpty(val);
+            checkIfStringLengthIsInRange(val);
+            this._name = val;
+        }
 
-        Object.defineProperty(Item.prototype, 'description', {
-            get: function () {
-                return this._description;
-            },
-            set: function (description) {
-                if (description === '') {
-                    throw new Error('description string must have value');
-                }
-                this._description = description;
-            }
-        });
+        get description() {
+            return this._description;
+        }
 
-        return Item;
-    }());
+        set description(val) {
+            checkIfStringIsNullOrEmpty(val);
+            this._description = val;
+        }
 
-    var Book = (function (parent) {
-        function Book(name, isbn, genre, description) {
-            parent.call(this, name, description);
-            this.isbn = '' + isbn;
+        get id() {
+            return this._id;
+        }
+    }
+
+    class Book extends Item {
+        constructor(name, isbn, genre, description) {
+            super(name, description);
+            this.isbn = isbn;
             this.genre = genre;
         }
 
-        Book.prototype = Object.create(parent.prototype);
+        get id() {
+            return super.id;
+        }
 
-        Object.defineProperty(Book.prototype, 'isbn', {
-            get: function () {
-                return this._isbn;
-            },
-            set: function (isbn) {
-                if (+isbn !== 10) {
-                    if (+isbn !== 13) {
-                        throw new Error('isbn should be exactly 10 or 13');
+        get isbn() {
+            return this._isbn;
+        }
+
+        set isbn(val) {
+            if (!(+val)) {
+                throw new Error('isbn is not convertible to a number');
+            }
+            chekIfISBNhasExactlyTenOrThirteenSymbols(val);
+            this._isbn = val;
+        }
+
+        get genre() {
+            return this._genre;
+        }
+
+        set genre(val) {
+            chekIfGenreLengthIsInRange(val);
+            this._genre = val;
+        }
+    }
+
+    class Media extends Item {
+        constructor(name, rating, duration, description) {
+            super(name, description);
+            this.rating = rating;
+            this.duration = duration;
+        }
+
+        get rating() {
+            return this._rating;
+        }
+
+        set rating(val) {
+            if (val < 1 || 5 < val || !(+val) || val === null || val === [] || val === {}) {
+                throw new Error('invalid rating');
+            }
+
+            this._rating = val;
+        }
+
+        get duration() {
+            return this._duration;
+        }
+
+        set duration(val) {
+            if (val <= 0 || !(+val) || val === null || val === [] || val === {}) {
+                throw new Error('invalid duration');
+            }
+
+            this._duration = val;
+        }
+    }
+
+    class Catalog {
+        constructor(name) {
+            this.name = name;
+            this._id = getNextCatalogId();
+            this._items = [];
+        }
+
+        get name() {
+            return this._name;
+        }
+
+        set name(val) {
+            checkIfStringIsNullOrEmpty(val);
+            checkIfStringLengthIsInRange(val);
+            this._name = val;
+        }
+
+        get id() {
+            return this._id;
+        }
+
+        get items() {
+            return this._items;
+        }
+
+        add(...args) {
+            let argsArray = [].concat(...args);
+            if (args.length === 0 || args === [] || args === null || args === undefined) {
+                throw new Error('no items provided');
+            }
+
+            for (let item of argsArray) {
+                if (item.constructor.name === 'Item') {
+                    this._items.push(item);
+                } else {
+                    throw new Error('invalid element is passed');
+                }
+            }
+
+            return this;
+        }
+
+        find(id) {
+            if (typeof id === 'object') {
+                let options = id;
+                let resultArray = [];
+                for (let item in this._items) {
+                    if (options.id) {
+                        if (options.name) {
+                            if (item.name === options.name && item.id === options.id) {
+                                resultArray.push(item);
+                            }
+                        } else {
+                            if (item.id === options.id) {
+                                resultArray.push(item);
+                            }
+                        }
+                    } else {
+                        if (item.name === options.name) {
+                            resultArray.push(item);
+                        }
+                    }
+                }
+                return resultArray;
+            } else {
+                if (!(+id) || id === null || id === undefined || typeof id !== 'number') {
+                    throw new Error('invalid id');
+                }
+
+                let isFound = false;
+                for (let item of this._items) {
+                    if (item.id === id) {
+                        isFound = true;
+                        return item;
                     }
                 }
 
-                this._isbn = isbn;
-            }
-        });
-
-        Object.defineProperty(Book.prototype, 'genre', {
-            get: function () {
-                return this._genre;
-            },
-            set: function (genre) {
-                if (genre.length < 2 || genre.length > 20) {
-                    throw new Error('genre length invalida range');
+                if (!isFound) {
+                    return null;
                 }
-
-                this._genre = genre;
             }
-        });
-        return Book;
-    }(Item));
-
-    var Media = (function (parent) {
-        function Media(name, rating, duration, description) {
-            parent.call(this, description, name);
-            this.duration = duration;
-            this.rating = rating;
         }
 
-        Media.prototype = Object.create(parent.prototype);
-
-        Object.defineProperty(Media.prototype, 'duration', {
-            get: function () {
-                return this._duration;
-            },
-            set: function (duration) {
-                if (+duration < 1) {
-                    throw new Error('duration must be greater than zero');
-                }
-
-                this._duration = duration;
+        search(pattern) {
+            if (typeof pattern !== 'string' || pattern.length < 1) {
+                throw new Error('invalid pattern');
             }
-        });
-
-        Object.defineProperty(Media.prototype, 'rating', {
-            get: function () {
-                return this._rating;
-            },
-            set: function (rating) {
-                if (+rating < 1 || +rating > 5) {
-                    throw new Error('invalid rating');
+            pattern = pattern.toLowerCase();
+            let resultArray = [];
+            for (let item of this._items) {
+                if (item.description.toLowerCase().indexOf(pattern) >= 0 || item.name.toLowerCase().indexOf(pattern) >= 0) {
+                    resultArray.push(item);
                 }
-
-                this._rating = rating;
             }
-        });
-        return Media;
-    }(Item));
+            return resultArray;
+        }
+    }
 
-    var Catalog = (function () {
-        function Catalog(name, items) {
-            this.id = ++catalogIdGenerator;
-            this.name = name;
-            this.items = [];
+    class BookCatalog extends Catalog {
+        constructor(name) {
+            super(name);
         }
 
-        Catalog.prototype = Object.create({});
+        get id() {
+            return super.id;
+        }
 
-        Object.defineProperty(Catalog.prototype, 'name', {
-            get: function () {
-                return this._name;
-            },
-            set: function (name) {
-                if (name.length < 2 || name.length > 40) {
-                    throw new Error('name length invalid range');
-                }
+        get items() {
+            return super.items;
+        }
 
-                this._name = name;
-            }
-        });
-
-        Object.defineProperty(Catalog.prototype, 'items', {
-            get: function () {
-                return this._items;
-            },
-            set: function (item) {
-                this._items = items.concat(item);
-            }
-        });
-
-        Catalog.prototype.add = function (...items) {
-            for (let i of items) {
-                if (!(i instanceof Item) || !i) {
-                    throw new Error('invalid items');
-                }
-
-                this.items.concat(i);
-            }
-        };
-
-        Catalog.prototype.find = function (id) {
-            if (!(+id) || !id) {
-                throw new Error('incorrect id');
+        add(...args) {
+            let argsArray = [].concat(...args);
+            if (args.length === 0 || args === [] || args === null || args === undefined) {
+                throw new Error('no items provided');
             }
 
-            if (this.items.find(item=>item.id === id)) {
-                return this.items.filter(item=>item.id === id)[0];
-            } else {
-                return null;
-            }
-        };
-
-        Catalog.prototype.find = function (options) {
-            let filtered;
-            if (options.name) {
-                if (!options.id) {
-                    filtered = this.items.filter(item=>item.name === options.name);
+            for (let book of argsArray) {
+                if (book.constructor.name === 'Book') {
+                    this._items.push(book);
                 } else {
-                    filtered = this.items.filter(item=>(item.name === options.name && item.id === options.id));
+                    throw new Error('invalid element is passed');
                 }
-            } else {
-                filtered = this.items.filter(item=>(item.id === options.id));
             }
 
-            return [].concat(filtered);
+            return this;
         }
 
-        return Catalog;
-    }());
-
-    var BookCatalog = (function (parent) {
-        function BookCatalog(name) {
-            parent.call(this, name);
-            this.items = [];
-        }
-
-        BookCatalog.prototype = Object.create(parent.prototype);
-
-        BookCatalog.prototype.add = function (...items) {
-            for (let i of items) {
-                if (!(i instanceof Book) || !i) {
-                    throw new Error('invalid items');
-                }
-
-                this.items.concat(i);
+        getGenres() {
+            if (this.items.length === 0) {
+                return [];
             }
-        };
 
-        BookCatalog.prototype.getGenres = function () {
-            result = [];
+            let resultArray = [].concat(this.items[0].genre);
+
             for (let i of this.items) {
-                result.push(i.genre.toLowerCase());
-            }
-            return result;
-        };
+                let genre = i.genre.toLowerCase();
+                let j = 0;
+                let isFound = false;
+                while (resultArray[j]) {
+                    if (genre === resultArray[j]) {
+                        isFound = true;
+                    }
+                    j += 1;
+                }
 
-        return BookCatalog;
-    }(Catalog));
+                if (!isFound) {
+                    resultArray.push(genre);
+                }
+                j = 0;
+            }
+
+            return resultArray;
+        }
+
+        find(id) {
+            if (typeof id === 'object') {
+                let options = id;
+                let resultArray = [];
+                for (let item of this._items) {
+                    if (options.id) {
+                        if (options.name) {
+                            if (options.genre) {
+                                if (item.name === options.name && item.id === options.id && options.genre === item.genre) {
+                                    resultArray.push(item);
+                                }
+                            } else {
+                                if (item.name === options.name && item.id === options.id) {
+                                    resultArray.push(item);
+                                }
+                            }
+                        } else {
+                            if (options.genre) {
+                                if (item.id === options.id && options.genre === item.genre) {
+                                    resultArray.push(item);
+                                }
+                            } else {
+                                if (item.id === options.id) {
+                                    resultArray.push(item);
+                                }
+                            }
+                        }
+                    } else {
+                        if (options.genre) {
+                            if (options.name) {
+                                if (item.name === options.name && options.genre === item.genre) {
+                                    resultArray.push(item);
+                                }
+                            } else {
+                                if (item.genre === options.genre) {
+                                    resultArray.push(item);
+                                }
+                            }
+                        } else {
+                            if (item.name === options.name) {
+                                resultArray.push(item);
+                            }
+                        }
+                    }
+                }
+                return resultArray;
+            } else {
+                if (!(+id) || id === null || id === undefined || typeof id !== 'number') {
+                    throw new Error('invalid id');
+                }
+
+                let isFound = false;
+                for (let item of this._items) {
+                    if (item.id === id) {
+                        isFound = true;
+                        return item;
+                    }
+                }
+
+                if (!isFound) {
+                    return null;
+                }
+            }
+        }
+    }
+
+    class MediaCatalog extends Catalog {
+        constructor(name) {
+            super(name);
+        }
+
+        get id() {
+            return super.id;
+        }
+
+        get items() {
+            return super.items;
+        }
+
+        add(...args) {
+            let argsArray = [].concat(...args);
+            if (args.length === 0 || args === [] || args === null || args === undefined) {
+                throw new Error('no items provided');
+            }
+
+            for (let media of argsArray) {
+                if (media.constructor.name === 'Media') {
+                    this._items.push(media);
+                } else {
+                    throw new Error('invalid element is passed');
+                }
+            }
+
+            return this;
+        }
+
+        getTop(count) {
+            if (typeof count !== 'number' || count < 1) {
+                throw new Error('invalid count');
+            }
+
+            let result=[];
+            let sortedMediaItems=this.items.sort((a,b)=>(+b.rating)-(+a.rating));
+            let firstCountItems=sortedMediaItems.slice(0,count);
+
+            for(let media of firstCountItems){
+                result.push({
+                    name:media.name,
+                    id:media.id
+                })
+            }
+
+            return result;
+        }
+
+        getSortedByDuration() {
+
+        }
+
+        find(id) {
+            if (typeof id === 'object') {
+                let options = id;
+                let resultArray = [];
+                for (let item of this._items) {
+                    if (options.id) {
+                        if (options.name) {
+                            if (options.rating) {
+                                if (item.name === options.name && item.id === options.id && options.rating === item.rating) {
+                                    resultArray.push(item);
+                                }
+                            } else {
+                                if (item.name === options.name && item.id === options.id) {
+                                    resultArray.push(item);
+                                }
+                            }
+                        } else {
+                            if (options.rating) {
+                                if (item.id === options.id && options.rating === item.rating) {
+                                    resultArray.push(item);
+                                }
+                            } else {
+                                if (item.id === options.id) {
+                                    resultArray.push(item);
+                                }
+                            }
+                        }
+                    } else {
+                        if (options.rating) {
+                            if (options.name) {
+                                if (item.name === options.name && options.rating === item.rating) {
+                                    resultArray.push(item);
+                                }
+                            } else {
+                                if (item.rating === options.rating) {
+                                    resultArray.push(item);
+                                }
+                            }
+                        } else {
+                            if (item.name === options.name) {
+                                resultArray.push(item);
+                            }
+                        }
+                    }
+                }
+                return resultArray;
+            } else {
+                if (!(+id) || id === null || id === undefined || typeof id !== 'number') {
+                    throw new Error('invalid id');
+                }
+
+                let isFound = false;
+                for (let item of this._items) {
+                    if (item.id === id) {
+                        isFound = true;
+                        return item;
+                    }
+                }
+
+                if (!isFound) {
+                    return null;
+                }
+            }
+        }
+    }
+
+    function getNextId() {
+        uniqueItemId += 1;
+        return uniqueItemId;
+    }
+
+    function getNextCatalogId() {
+        return ++uniqueCatalogId;
+    }
+
+    function checkIfStringIsNullOrEmpty(str) {
+        if (str === '' || str === undefined || typeof str !== 'string') {
+            throw new Error('invalid string');
+        }
+    }
+
+    function checkIfStringLengthIsInRange(str) {
+        if (str.length < NAME_MIN_LENGTH || NAME_MAX_LENGTH < str.length) {
+            throw new Error('invalid string length');
+        }
+    }
+
+    function chekIfISBNhasExactlyTenOrThirteenSymbols(str) {
+        if (str.length != 10) {
+            if (str.length != 13) {
+                throw new Error('invalid isbn');
+            }
+        }
+    }
+
+    function chekIfGenreLengthIsInRange(str) {
+        if (str.length < GENRE_MIN_LENGTH || GENRE_MAX_LENGTH < str.length) {
+            throw new Error('invalid genre');
+        }
+    }
 
     return {
         getBook: function (name, isbn, genre, description) {
-            return Object.create(Book)
-                .init(name, isbn, genre, description);
+            return new Book(name, isbn, genre, description);
         },
         getMedia: function (name, rating, duration, description) {
-            return Object.create(Media)
-                .init(name, rating, duration, description);
+            return new Media(name, rating, duration, description);
         },
         getBookCatalog: function (name) {
-            return Object.create(BookCatalog)
-                .init(name);
+            return new BookCatalog(name);
+
         },
         getMediaCatalog: function (name) {
-            return Object.create(mediaCatalog)
-                .init(name);
+            return new MediaCatalog(name);
         }
     };
 }
+
 module.exports = solve;
 
-/*
- var book= solve().getBook('ime','10','ekshan','roman');
- console.log(book.name);*/
+/*var book = solve().getBook('ime', '1111111111', 'ekshan', 'roman');
+ var book2 = solve().getBook('zaglavie', '1111111111', 'trilar', 'roman');
+ var bookCatalog = solve().getBookCatalog('katalog');
+ var bookCatalog2 = solve().getBookCatalog('katalogat');
+ bookCatalog.add([book, book2]);
+ console.log(bookCatalog.find({id: 1,name:'ime'}));
+ console.log(bookCatalog.id,bookCatalog2.id);*/
+
