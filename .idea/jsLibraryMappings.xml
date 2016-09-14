@@ -8,6 +8,7 @@
     <file url="file://$PROJECT_DIR$/Topics/04. Classical-Inheritance/homework" libraries="{JavaScriptOOP/Topics/04. Classical-Inheritance/homework/node_modules}" />
     <file url="file://$PROJECT_DIR$/Topics/06. Modules-and-Patterns/homework" libraries="{JavaScriptOOP/Topics/06. Modules-and-Patterns/homework/node_modules}" />
     <file url="file://$PROJECT_DIR$/Topics/14. Class-Methods-and-Properties/homework/task-1" libraries="{JavaScriptOOP/Topics/14. Class-Methods-and-Properties/homework/task-1/node_modules}" />
+    <file url="file://$PROJECT_DIR$/Topics/17. Modules-and-Patterns/homework" libraries="{JavaScriptOOP/Topics/17. Modules-and-Patterns/homework/node_modules}" />
     <includedPredefinedLibrary name="ECMAScript 6" />
   </component>
 </project>

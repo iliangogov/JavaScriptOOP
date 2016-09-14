@@ -44,24 +44,66 @@
       * 25% the submitted homework (count of submitted homeworks / count of all homeworks) for the course
 */
 
+/*function solve() {
+ var Course = {
+ init: function(title, presentations) {
+ },
+ addStudent: function(name) {
+ },
+ getAllStudents: function() {
+ },
+ submitHomework: function(studentID, homeworkID) {
+ },
+ pushExamResults: function(results) {
+ },
+ getTopStudents: function() {
+ }
+ };
+
+ return Course;
+ }
+
+ module.exports = solve;*/
+
+var objArr=[
+	{a:'a'},
+	{b:2},
+	{c:[1]}
+]
+var arr=[];
+arr.push(7);
+arr.push(3);
+arr.push(5);
+arr.push('a');
+console.log(arr);
+console.log(arr.filter((x)=>Number(x) && x<7)
+				.sort((a,b)=>b-a) //desscending
+				.slice(0,1)
+				.map(x=>x+"*"));
+
+console.log(objArr);
+console.log(objArr.filter(x=>x.b===2));
 function solve() {
-	var Course = {
-		init: function(title, presentations) {
-		},
-		addStudent: function(name) {
-		},
-		getAllStudents: function() {
-		},
-		submitHomework: function(studentID, homeworkID) {
-		},
-		pushExamResults: function(results) {
-		},
-		getTopStudents: function() {
+
+	var idGenerator = 0;
+	class Person {
+		constructor() {
+			this.id = getId();
 		}
-	};
+	}
 
-	return Course;
+	function getId() {
+		return ++idGenerator;
+	}
+
+	return {
+		makePerson:function(){
+			return new Person;
+		}
+	}
 }
+	var a = solve().makePerson();
+	var b = solve().makePerson();
 
 
-module.exports = solve;
+console.log(a.id,b.id);
